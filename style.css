@@ -38,18 +38,19 @@ img {
     width: 200px;
 }
 
+/* Entfernt Punkte und setzt Pfeile für die Listen */
 .stats, .abilities {
-    list-style-type: none !important; /* Erzwingt das Entfernen der Punkte */
+    list-style: none !important;  
     padding-left: 0;
-    margin: 0; /* Manchmal verursacht ein margin eine Verschiebung */
     text-align: left;
+    margin-top: 10px;
 }
 
 .stats li, 
 .abilities li {
-    list-style: none !important; /* Verhindert Standard-Punkte */
+    list-style: none !important; 
     position: relative;
-    padding-left: 20px; /* Platz für den Pfeil */
+    padding-left: 20px;
 }
 
 /* Fügt gelbe Pfeile als Ersatz für Punkte hinzu */
@@ -63,13 +64,8 @@ img {
     font-size: 16px;
 }
 
-/* Entfernt Standard-Punkte in modernen Browsern */
-.stats li::marker, 
-.abilities li::marker {
-    content: "" !important;
-    display: none !important;
-}
 
+/* Pokémon-Liste */
 .pokemon-container {
     display: flex;
     flex-wrap: wrap;
@@ -82,7 +78,7 @@ img {
     margin: 0 auto;  
 }
 
-/* 🔹 Einzelne Pokémon-Karten */
+/* Pokémon-Karten */
 .pokemon-container li {
     border: 1px solid #ccc;
     padding: 10px;

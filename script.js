@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     async function searchPokemon() {
         let pokemonName = input.value.toLowerCase().trim();
-    
+        
         if (pokemonName === "") {
             alert("Bitte gib einen Pokémon-Namen ein!");
             return;
@@ -40,7 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
     
         try {
             const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemonName}`);
-    
             if (!response.ok) {
                 throw new Error("Pokémon nicht gefunden!");
             }
@@ -50,27 +49,26 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("name").textContent = data.name.toUpperCase();
             document.getElementById("sprite").src = data.sprites.front_default;
     
-            // 🟡 Stats-Liste LEEREN und NEU ERSTELLEN
+            // 🟡 Stats-Liste NEU ERSTELLEN, OHNE INNERHTML-PFEILE
             const statsList = document.getElementById("stats");
-            statsList.innerHTML = "";  
+            statsList.innerHTML = "";
             data.stats.forEach(stat => {
                 let li = document.createElement("li");
-                li.innerHTML = `<span style="color: #ffcc00; font-weight: bold;">➜</span> ${stat.stat.name}: ${stat.base_stat}`;
+                li.textContent = `${stat.stat.name}: ${stat.base_stat}`;
                 statsList.appendChild(li);
             });
     
-            // 🟡 Abilities-Liste LEEREN und NEU ERSTELLEN
+            // 🟡 Abilities-Liste NEU ERSTELLEN, OHNE INNERHTML-PFEILE
             const abilitiesList = document.getElementById("abilities");
-            abilitiesList.innerHTML = "";  
+            abilitiesList.innerHTML = "";
             data.abilities.forEach(ability => {
                 let li = document.createElement("li");
-                li.innerHTML = `<span style="color: #ffcc00; font-weight: bold;">➜</span> ${ability.ability.name}`;
+                li.textContent = ability.ability.name;
                 abilitiesList.appendChild(li);
             });
     
             card.style.display = "block";
     
-            // Setze den aktuellen Index, falls das Pokémon in der Liste ist
             currentPokemonIndex = pokemonArray.findIndex(pokemon => pokemon.name === data.name.toLowerCase());
     
         } catch (error) {
@@ -120,31 +118,3 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-document.addEventListener("DOMContentLoaded", () => {
-    // Entferne Aufzählungspunkte für Stats & Abilities
-    document.querySelectorAll(".stats, .abilities").forEach(list => {
-        list.style.listStyle = "none"; // Standardpunkte entfernen
-    });
-
-    document.querySelectorAll(".stats li, .abilities li").forEach(item => {
-        item.style.listStyle = "none"; // Falls Punkte trotzdem bleiben
-        item.style.paddingLeft = "20px"; // Platz für Pfeile
-        item.style.position = "relative";
-
-        // Falls die Pfeile doppelt sind, erst vorherige Pfeile entfernen
-        let oldArrow = item.querySelector(".arrow");
-        if (oldArrow) oldArrow.remove();
-
-        // Erzeuge gelben Pfeil manuell
-        let arrow = document.createElement("span");
-        arrow.className = "arrow";
-        arrow.innerHTML = "➜ ";
-        arrow.style.color = "#ffcc00";
-        arrow.style.fontWeight = "bold";
-        arrow.style.position = "absolute";
-        arrow.style.left = "0";
-
-        // Füge den Pfeil vor den Text
-        item.prepend(arrow);
-    });
-});
