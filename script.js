@@ -28,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     prevButton.addEventListener("click", () => navigatePokemon(-1));
     nextButton.addEventListener("click", () => navigatePokemon(1));
-    closeButton.addEventListener("click", () => card.style.display = "none");
+    closeButton.addEventListener("click", () => card.style.display = "none") ;
 
     async function searchPokemon() {
         let pokemonName = input.value.toLowerCase().trim();
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
             document.getElementById("name").textContent = data.name.toUpperCase();
             document.getElementById("sprite").src = data.sprites.front_default;
     
-            // 🟡 Stats-Liste NEU ERSTELLEN, OHNE INNERHTML-PFEILE
+          
             const statsList = document.getElementById("stats");
             statsList.innerHTML = "";
             data.stats.forEach(stat => {
@@ -58,7 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 statsList.appendChild(li);
             });
     
-            // 🟡 Abilities-Liste NEU ERSTELLEN, OHNE INNERHTML-PFEILE
+        
             const abilitiesList = document.getElementById("abilities");
             abilitiesList.innerHTML = "";
             data.abilities.forEach(ability => {

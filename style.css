@@ -38,7 +38,7 @@ img {
     width: 200px;
 }
 
-/* Entfernt Punkte und setzt Pfeile für die Listen */
+
 .stats, .abilities {
     list-style: none !important;  
     padding-left: 0;
@@ -53,7 +53,7 @@ img {
     padding-left: 20px;
 }
 
-/* Fügt gelbe Pfeile als Ersatz für Punkte hinzu */
+
 .stats li::before, 
 .abilities li::before {
     content: "➜"; 
@@ -76,6 +76,15 @@ img {
     
     max-width: 800px; 
     margin: 0 auto;  
+}
+#closeCard {
+    
+    top: 10px;
+    border: none;
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
 }
 
 /* Pokémon-Karten */
