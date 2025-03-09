@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #f4f4f4;
+}
+
+.container {
+    margin-top: 50px;
+}
+
+input {
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+}
+
+button {
+    padding: 10px;
+    font-size: 16px;
+    background-color: #ffcc00;
+    border: none;
+    cursor: pointer;
+}
+
+.card {
+    display: none;
+    background: white;
+    padding: 20px;
+    margin-top: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    width: 200px;
+}
+
+.stats, .abilities {
+    list-style-type: none !important; /* Erzwingt das Entfernen der Punkte */
+    padding-left: 0;
+    margin: 0; /* Manchmal verursacht ein margin eine Verschiebung */
+    text-align: left;
+}
+
+.stats li, 
+.abilities li {
+    list-style: none !important; /* Verhindert Standard-Punkte */
+    position: relative;
+    padding-left: 20px; /* Platz für den Pfeil */
+}
+
+/* Fügt gelbe Pfeile als Ersatz für Punkte hinzu */
+.stats li::before, 
+.abilities li::before {
+    content: "➜"; 
+    color: #ffcc00; 
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+    font-size: 16px;
+}
+
+/* Entfernt Standard-Punkte in modernen Browsern */
+.stats li::marker, 
+.abilities li::marker {
+    content: "" !important;
+    display: none !important;
+}
+
+.pokemon-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+    padding: 20px;
+    list-style-type: none;
+    
+    max-width: 800px; 
+    margin: 0 auto;  
+}
+
+/* 🔹 Einzelne Pokémon-Karten */
+.pokemon-container li {
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 4px;
+    background-color: white;
+    text-align: center;
+    width: 90px;
+    font-size: 11px;
+    
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.1s;
+    cursor: pointer;
+}
+
+.pokemon-container li:hover {
+    transform: scale(1.03);
+    background-color: #ffcc00;
+    font-weight: bold;
+}

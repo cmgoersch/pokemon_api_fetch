@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pokémon Suchmaschine</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Pokémon Suchmaschine</h1>
+        <input type="text" id="pokemonName" placeholder="Gib einen Pokémon-Namen ein">
+        <button id="searchButton">🧐 Suchen</button>
+
+        <div id="pokemonCard" class="card">
+            <button id="closeCard">❌</button>
+            <h2 id="name"></h2>
+            <img id="sprite" src="" alt="Pokemon Sprite">
+            
+            <h3>Stats</h3>
+            <ul id="stats"></ul>
+            
+            <h3>Abilities</h3>
+            <ul id="abilities"></ul>
+        
+            <div class="nav-buttons">
+                <button id="prevPokemon">⬅ Vorheriges</button>
+                <button id="nextPokemon">Nächstes  ⮕</button>
+            </div>
+        </div>
+
+        <div class="pokemon-container" id="pokemonList"></div>
+        
+    </div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
+
